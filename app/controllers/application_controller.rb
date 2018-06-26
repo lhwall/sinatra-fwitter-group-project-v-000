@@ -18,7 +18,7 @@ end
 
  post "/signup" do
    binding.pry
-   if params[:username] = "" || params[:password] = ""
+   if params[:username] == "" || params[:password] == ""
      erb :"users/create_user"
   else
   @user = User.new(:username => params[:username], :password => params[:password], :email =>params[:email])
