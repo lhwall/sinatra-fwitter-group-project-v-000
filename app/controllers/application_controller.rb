@@ -12,12 +12,13 @@ class ApplicationController < Sinatra::Base
 end
 
  get "/signup" do
-   erb :signup
+   erb :"users/create_user"
  end
 
  post "/signup" do
-
-  erb :tweets
+  @user = User.create(:username => params[:username], :password => params[:password])
+  session[:id] = @user.id
+  erb :"/tweets/tweets"
  end
 
  get "/login" do
