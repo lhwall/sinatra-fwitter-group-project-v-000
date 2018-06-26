@@ -17,9 +17,9 @@ end
  end
 
  post "/signup" do
-   if !params[:username] || !params[:password]
+   if params[:username].empty? || params[:password].empty?
      erb :"users/create_user"
-   else
+  else
   @user = User.create(:username => params[:username], :password => params[:password])
   session[:id] = @user.id
   redirect to "/tweets/tweets"
