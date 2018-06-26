@@ -18,13 +18,13 @@ end
 
  post "/signup" do
    #binding.pry
-   if params[:username] = "" || params[:password] = ""
-     erb :"users/create_user"
-  else
+  #  if params[:username] = "" || params[:password] = ""
+  #    erb :"users/create_user"
+  # else
   @user = User.create(:username => params[:username], :password => params[:password])
   session[:id] = @user.id
   redirect to "/tweets/tweets"
-end
+#end
  end
 
  get "/login" do
