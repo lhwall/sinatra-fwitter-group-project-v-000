@@ -19,7 +19,7 @@ end
  post "/signup" do
   @user = User.create(:username => params[:username], :password => params[:password])
   session[:id] = @user.id
-  erb :"/tweets/tweets"
+  redirect to "/tweets/tweets"
  end
 
  get "/login" do
